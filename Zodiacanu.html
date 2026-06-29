@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://127.0.0.1:5500/zosiacpromt.html/zodiacpromt.html/zodiacpromta.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Zodiac Sign Finder</title>
+
+    <style>
+        body{
+            font-family:Arial;
+            background:#f0f8ff;
+        }
+
+        table{
+            width:450px;
+            margin:50px auto;
+            border-collapse:collapse;
+            text-align:center;
+            background:white;
+        }
+
+        th{
+            background:#4CAF50;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            border:1px solid black;
+            padding:12px;
+        }
+
+        .logo{
+            font-size:50px;
+        }
+    </style>
+</head>
+
+<body>
+
+<table>
+    <tbody><tr>
+        <th colspan="2">Zodiac Sign Finder</th>
+    </tr>
+
+    <tr>
+        <td>Date</td>
+        <td id="date">3</td>
+    </tr>
+
+    <tr>
+        <td>Month</td>
+        <td id="month">september</td>
+    </tr>
+
+    <tr>
+        <td>Zodiac Sign</td>
+        <td id="sign">Virgo</td>
+    </tr>
+
+    <tr>
+        <td>Logo</td>
+        <td class="logo" id="logo">♍</td>
+    </tr>
+
+</tbody></table>
+
+<script>
+
+var day=parseInt(prompt("Enter Date"));
+var month=prompt("Enter Month").toLowerCase();
+
+var sign="";
+var logo="";
+var valid=true;
+
+/* Date Validation */
+
+if(month=="february")
+{
+    if(day<1 || day>29)
+        valid=false;
+}
+else if(month=="april" || month=="june" || month=="september" || month=="november")
+{
+    if(day<1 || day>30)
+        valid=false;
+}
+else if(month=="january" || month=="march" || month=="may" || month=="july" || month=="august" || month=="october" || month=="december")
+{
+    if(day<1 || day>31)
+        valid=false;
+}
+else
+{
+    valid=false;
+}
+
+/* Zodiac Finder */
+
+if(valid)
+{
+
+if((month=="march" && day>=21) || (month=="april" && day<=19))
+{
+    sign="Aries";
+    logo="♈";
+}
+
+else if((month=="april" && day>=20) || (month=="may" && day<=20))
+{
+    sign="Taurus";
+    logo="♉";
+}
+
+else if((month=="may" && day>=21) || (month=="june" && day<=20))
+{
+    sign="Gemini";
+    logo="♊";
+}
+
+else if((month=="june" && day>=21) || (month=="july" && day<=22))
+{
+    sign="Cancer";
+    logo="♋";
+}
+
+else if((month=="july" && day>=23) || (month=="august" && day<=22))
+{
+    sign="Leo";
+    logo="♌";
+}
+
+else if((month=="august" && day>=23) || (month=="september" && day<=22))
+{
+    sign="Virgo";
+    logo="♍";
+}
+
+else if((month=="september" && day>=23) || (month=="october" && day<=22))
+{
+    sign="Libra";
+    logo="♎";
+}
+
+else if((month=="october" && day>=23) || (month=="november" && day<=21))
+{
+    sign="Scorpio";
+    logo="♏";
+}
+
+else if((month=="november" && day>=22) || (month=="december" && day<=21))
+{
+    sign="Sagittarius";
+    logo="♐";
+}
+
+else if((month=="december" && day>=22) || (month=="january" && day<=19))
+{
+    sign="Capricorn";
+    logo="♑";
+}
+
+else if((month=="january" && day>=20) || (month=="february" && day<=18))
+{
+    sign="Aquarius";
+    logo="♒";
+}
+
+else if((month=="february" && day>=19) || (month=="march" && day<=20))
+{
+    sign="Pisces";
+    logo="♓";
+}
+
+document.getElementById("date").innerHTML=day;
+document.getElementById("month").innerHTML=month;
+document.getElementById("sign").innerHTML=sign;
+document.getElementById("logo").innerHTML=logo;
+
+}
+else
+{
+    alert("Invalid Date or Month");
+}
+
+</script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
